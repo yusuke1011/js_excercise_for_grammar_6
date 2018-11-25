@@ -2,13 +2,14 @@
 //   - コメントとは: https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Lexical_grammar#%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88
 
 // ここに「ブロックスコープ」の説明を記述する
+//関数を含むブロック内で（{}で囲まれた中で）宣言された変数に外部からアクセス不可。逆は可能。（ブロック内から外はアクセス可能。）
 
 
 // 課題2: 「コメント」を使って変数の関数スコープの説明をしてください
 //   - コメントとは: https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Lexical_grammar#%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88
 
 // ここに「関数スコープ」の説明を記述する
-
+//関数の引数と関数内で宣言された変数を、関数の外からアクセス不可。逆はアクセス可能。（関数内から外はアクセス可能）
 
 // 課題3: 以下の条件を満たす高階関数を実装してください
 //   - 関数名: kadai_3
@@ -26,6 +27,29 @@
 //           - 第1引数で受けとった `message` の内容を `alert` を使ってアラートダイアログに表示する
 //   - kadai_3関数を実装した直後に「kadai_3(数値, コールバック関数)」を呼び出して、アラートダイアログのメッセージ内容が意図通りであることを確認する
 
+const kadai_3 = (age,callback)=>{
+    callback(age);
+}
+
+const putAlert = (message)=>{
+    if((typeof message) !== "number"){
+        alert("数値が入力されていません");
+    }
+    else if(message >= 20){
+        alert("値は２０以上です");
+    }
+    else if(message >= 10){
+        alert("値は１０以上２０未満です");
+    }
+    else if(message < 10){
+        alert("値は１０未満です");
+    }
+}
+
+kadai_3(20,putAlert);
+kadai_3(10,putAlert);
+kadai_3(0,putAlert);
+kadai_3("a".putAlert); //callbackが関数でないという旨のエラーが発生
 
 // 課題4: 以下の条件を満たす即時関数を作る
 //   - 2つの引数を受け取る
@@ -33,3 +57,7 @@
 //     - 第2引数: y => 数値
 //   - 処理内容:
 //     - 第1引数のx, 第2引数のyを使って足し算した結果(「x + y」の結果)をconsole.logで出力する。
+
+((x,y)=>{
+    console.log("課題4の結果: ",x+y);
+})(1,2);
