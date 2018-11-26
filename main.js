@@ -27,7 +27,7 @@
 //           - 第1引数で受けとった `message` の内容を `alert` を使ってアラートダイアログに表示する
 //   - kadai_3関数を実装した直後に「kadai_3(数値, コールバック関数)」を呼び出して、アラートダイアログのメッセージ内容が意図通りであることを確認する
 
-const kadai_3 = (age,callback) => {
+const kadai_3 = (age, callback) => {
     if((typeof age) !== "number"){
         callback("数値が入力されていません");
     }
@@ -42,10 +42,10 @@ const kadai_3 = (age,callback) => {
     }
 }
 
-kadai_3(20,alert);
-kadai_3(10,alert);
-kadai_3(0,alert);
-kadai_3("a",alert);
+kadai_3(20, alert);
+kadai_3(10, alert);
+kadai_3(0, alert);
+kadai_3("a", alert);
 
 // 課題4: 以下の条件を満たす即時関数を作る
 //   - 2つの引数を受け取る
@@ -54,6 +54,6 @@ kadai_3("a",alert);
 //   - 処理内容:
 //     - 第1引数のx, 第2引数のyを使って足し算した結果(「x + y」の結果)をconsole.logで出力する。
 
-((x,y) => {
-    console.log("課題4の結果: ",x+y);
-})(1,2);
+((x, y) => {
+    console.log("課題4の結果: ", x+y);
+})(1, 2);
